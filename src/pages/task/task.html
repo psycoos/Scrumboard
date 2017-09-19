@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      New Task
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <form (ngSubmit)="logForm()">
+        <ion-item>
+          <ion-label>Task Name</ion-label>
+          <ion-input type="text" [(ngModel)]="task.title" name="title"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label>Points</ion-label>
+          <ion-input type="text" [(ngModel)]="task.points" name="description"></ion-input>
+        </ion-item>
+        <button ion-button type="submit" block>Add Task</button>
+      </form>
+</ion-content>
