@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController, NavParams } from 'ionic-angular';
 
 import { TaskPage } from '../task/task'
 
@@ -10,13 +10,19 @@ import { TaskPage } from '../task/task'
 export class HomePage {
 
   constructor(
-    public navCtrl: NavController
+    public navCtrl: NavController,
+    public navParams: NavParams
   ) {
 
   }
 
   changePage() {
     this.navCtrl.push(TaskPage)
+  }
+
+  ionViewDidLoad() {
+    console.log('HomePage')
+    console.log(this.navParams.get('title'))
   }
 
 }

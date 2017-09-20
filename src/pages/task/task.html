@@ -16,6 +16,6 @@
           <ion-label>Points</ion-label>
           <ion-input type="text" [(ngModel)]="task.points" name="description"></ion-input>
         </ion-item>
-        <button ion-button type="submit" block>Add Task</button>
+        <button ion-button type="submit" block (click)='changePage()'>Add Task</button>
       </form>
 </ion-content>

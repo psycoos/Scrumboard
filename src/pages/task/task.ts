@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { HomePage } from '../home/home'
 
 /**
  * Generated class for the TaskPage page.
@@ -25,5 +26,9 @@ export class TaskPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad TaskPage');
+  }
+
+  changePage() {
+    this.navCtrl.setRoot(HomePage, this.task)
   }
 }
