@@ -1,12 +1,25 @@
 <ion-header>
   <ion-navbar>
-    <button ion-button round float-right (click)='changePage()'><ion-icon name="add"></ion-icon></button>
+    <ion-buttons end>
+      <button ion-button icon-only (click)='onLoadNewTask()'><ion-icon name="add"></ion-icon></button>
+    </ion-buttons>
     <ion-title>
-      Scrumboard test 1
+      Scrumboard
     </ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-
+  <ion-list>
+    <ion-card *ngFor="let task of tasks">
+      <ion-card-content>
+        <ion-card-title>
+          {{task.title}}
+        </ion-card-title>
+        <p>
+          {{task.points}}
+        </p>
+      </ion-card-content>
+    </ion-card>
+  </ion-list>
 </ion-content>

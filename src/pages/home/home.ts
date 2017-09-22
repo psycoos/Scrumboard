@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 
+import { TaskService } from '../../providers/task/task.service';
 import { TaskPage } from '../task/task'
 
 @Component({
@@ -9,20 +10,25 @@ import { TaskPage } from '../task/task'
 })
 export class HomePage {
 
+  tasks:{title: string, points: number}[] = [];
+
   constructor(
     public navCtrl: NavController,
-    public navParams: NavParams
+    public navParams: NavParams,
+    private taskService: TaskService
   ) {
 
   }
 
-  changePage() {
-    this.navCtrl.push(TaskPage)
-  }
 
-  ionViewDidLoad() {
+
+  ionViewWillEnter() {
     console.log('HomePage')
-    console.log(this.navParams.get('title'))
+    this.tasks = this.taskService.getTasks();
+    console.log(this.tasks)
+  }
+  onLoadNewTask()  {
+    this.navCtrl.push(TaskPage);
   }
 
 }

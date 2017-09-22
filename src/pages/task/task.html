@@ -6,16 +6,20 @@
   </ion-navbar>
 </ion-header>
 
+
+<!-- <ion-input type="text" name="title" ngModel required></ion-input> -->
+
+
 <ion-content padding>
-  <form (ngSubmit)="logForm()">
+  <form (ngSubmit)="onAddTask(f.value)" #f="ngForm">
         <ion-item>
           <ion-label>Task Name</ion-label>
-          <ion-input type="text" [(ngModel)]="task.title" name="title"></ion-input>
+          <ion-input type="text" name="title" ngModel required></ion-input>
         </ion-item>
         <ion-item>
           <ion-label>Points</ion-label>
-          <ion-input type="text" [(ngModel)]="task.points" name="description"></ion-input>
+          <ion-input type="text" name="points" ngModel required></ion-input>
         </ion-item>
-        <button ion-button type="submit" block (click)='changePage()'>Add Task</button>
+        <button ion-button type="submit" block>Add Task</button>
       </form>
 </ion-content>

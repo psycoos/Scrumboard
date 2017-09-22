@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { HomePage } from '../home/home'
-
+import {NgForm} from '@angular/forms';
+import { TaskService } from '../../providers/task/task.service'
 /**
  * Generated class for the TaskPage page.
  *
@@ -16,19 +17,20 @@ import { HomePage } from '../home/home'
 })
 export class TaskPage {
 
-  task = {}
-  logForm() {
-    console.log(this.task)
-  }
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    private taskService: TaskService
+  ) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad TaskPage');
   }
 
-  changePage() {
-    this.navCtrl.setRoot(HomePage, this.task)
+  onAddTask(value: {title: string, points: number}) {
+    this.taskService.addTask(value);
+    this.navCtrl.pop();
   }
 }
