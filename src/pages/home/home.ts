@@ -20,6 +20,8 @@ export class HomePage {
 
   }
 
+title: string = 'R&I';
+desc: string = 'Onderzoek doen naar computers';
 
 
   ionViewWillEnter() {
@@ -30,5 +32,5 @@ export class HomePage {
   onLoadNewTask()  {
     this.navCtrl.push(TaskPage);
   }
-
 }
+
